@@ -135,12 +135,11 @@ def add_contact(args, book: AddressBook):
         message = "Contact added."
     if phone:
         record.add_phone(phone)
+        return message 
     else:
         if phone in [p.value for p in record.phones]:
-            return ("Phone number already exists for this contact.")
-    if phone:
-        record.add_phone(phone)
-    return message
+         return ("Phone number already exists for this contact.")
+    
 
 @input_error("add_birthday")
 def add_birthday(args, book):
@@ -235,10 +234,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-    

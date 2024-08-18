@@ -1,5 +1,4 @@
 import pickle
-import csv
 from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime
@@ -38,17 +37,6 @@ def load_records():
         with open(RECORDS_FILE_PATH, "rb") as f:
          book = pickle.load(f)  
     return book
-
-# def load_records():
-#     book = []
-#     if RECORDS_FILE_PATH.is_file():
-#         with open(RECORDS_FILE_PATH, newline="", encoding="utf-8") as f:
-#             book = csv.DictReader(f)
-#             for row in book:
-#              book = [
-#                 Record(row["name"], row["phone"], datetime.strptime(row["birthday"], DATE_FORMAT))
-#              ]
-#     return book
     
 @contextmanager
 def records_manager():

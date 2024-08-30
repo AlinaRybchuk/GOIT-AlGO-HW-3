@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "my-project-asistant-bot"
+version = "1.8.3"
+description = "My awesome project!"
+authors = ["AlinaRybchuk <alina_rybchuk_96@ukr.net>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api

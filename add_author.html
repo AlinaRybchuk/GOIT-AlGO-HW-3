@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Author</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"/>
+</head>
+<body>
+<main class="container">
+    <h1>Add Author</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="id_name">Author Name:</label>
+            {{ form.name }}
+            {{ form.errors.name }}
+        </div>
+        <div>
+            <label for="id_bio">Bio:</label>
+            {{ form.bio }}
+            {{ form.errors.bio }}
+        </div>
+        <button type="submit">Add Author</button>
+    </form>
+</main>
+</body>
+</html>

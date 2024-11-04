@@ -1,18 +1,26 @@
 from django import forms
-from .models import Author, Quote
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-class AuthorForm(forms.ModelForm):
-    class Meta:
-        model = Author
-        fields = ['name', 'bio'] 
-        widgets = {
-            'bio': forms.Textarea(attrs={'rows': 4, 'cols': 40}),  
-        }
+class RegisterForm(UserCreationForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput())
 
-class QuoteForm(forms.ModelForm):
+    password1 = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.PasswordInput())
+    password2 = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.PasswordInput())
+
     class Meta:
-        model = Quote
-        fields = ['text', 'author']  
-        widgets = {
-            'text': forms.Textarea(attrs={'rows': 4, 'cols': 40}), 
-        }
+        model = User
+        fields = ['username', 'password1', 'password2']
+
+class LoginForm(AuthenticationForm):
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']
